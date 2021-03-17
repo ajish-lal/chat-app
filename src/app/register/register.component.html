@@ -1,0 +1,31 @@
+<div class="background">
+    <div class="form-container">
+        <h2 class="form-title">Register</h2>
+        <form [formGroup]="registerForm" class="form-group" (ngSubmit)="saveAndNavigate()">
+            <mat-form-field>
+                <mat-label>User Name</mat-label>
+                <input matInput type="text" formControlName="userName">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email Address</mat-label>
+                <input matInput type="email" formControlName="email">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" formControlName="confirmPassword">
+                <mat-error>Password does not match!</mat-error>
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" style="margin-top: 30px;">Sign Up</button>
+
+            <br>
+            <div>
+                Already have an Account? <a href="/login" routerLink="/login">Login here</a>
+            </div>
+        </form>
+    </div>
+</div>
