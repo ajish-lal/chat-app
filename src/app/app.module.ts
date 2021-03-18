@@ -8,8 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ChatWindowComponent } from './chat-window/chat-window.component';
-import { AppBarComponent } from './app-bar/app-bar.component';
 
 import { UserService } from './user.service';
 
@@ -34,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: 'chat-window',
-    component: ChatWindowComponent
+    loadChildren: () => import('./chat-window/chat-window.module').then(m => m.ChatWindowModule)
   }
 ]
 
@@ -44,8 +42,6 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ChatWindowComponent,
-    AppBarComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +51,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule,
     MatButtonModule,
+    MatSelectModule,
     MatDialogModule
   ],
   providers: [UserService],
