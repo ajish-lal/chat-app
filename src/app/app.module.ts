@@ -36,7 +36,6 @@ const routes: Routes = [
   }
 ]
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,4 +57,5 @@ const routes: Routes = [
   providers: [UserService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
