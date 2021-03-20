@@ -2,11 +2,19 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    color: white;
 
     .background {
         display: flex;
         height: 100%;
-        
+
+        .user-list {
+            width: 30%;
+        }
+        .message-wrapper {
+            width: 70%;
+            background-color: white;
+        }
         .chat-container {
             display: flex;
             align-items: center;

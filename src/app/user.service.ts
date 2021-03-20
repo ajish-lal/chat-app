@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { forkJoin } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,13 @@ export class UserService {
 
   userList: any = [{ userName: 'admin', password: 'admin' }];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  fetchUsers() {
+    let page1 = this.http.get('https://reqres.in/api/users?page=1');
+    let page2 = this.http.get('https://reqres.in/api/users?page=2')
+    return forkJoin([page1, page2]);
+  }
 
   addUser(payload: any) {
     this.userList.push(payload);

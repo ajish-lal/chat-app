@@ -1,0 +1,32 @@
+.user-container {
+    height: 100%;
+    overflow: auto;
+
+    h3, p {
+        color: white;
+    }
+    p {
+        font-size: 12px !important;
+    }
+
+    .user-name {
+        cursor: pointer;
+    }
+
+    .mat-list-base {
+        background-color: #10222c;
+    }
+    
+    .mat-list-item-content:hover {
+            background-color: #233c52;
+    }
+
+    .selected {
+        .mat-list-item-content {
+            background-color: whitesmoke;
+            h3, p {
+                color: #151515;
+            }
+        }
+    }
+}

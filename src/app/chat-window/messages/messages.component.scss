@@ -1,0 +1,16 @@
+.message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: #10222c;
+
+    .message-window {
+        // height: 80%;
+    }
+    .input-box {
+        display: flex;
+        align-items: center;
+        color: black;
+    }
+}
