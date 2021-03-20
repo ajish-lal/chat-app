@@ -7,10 +7,26 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class MessagesComponent implements OnInit {
+  inputMessage = '';
+  messageList: any = [];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  sendMessage() {
+    if (this.inputMessage) {
+      this.messageList.push(this.inputMessage);
+      this.inputMessage = '';
+
+      let messageContainer = document.getElementById('messageWindow');
+      setTimeout(() => {
+        if (messageContainer) {
+          messageContainer.scrollTop = messageContainer.scrollHeight + 52;
+        }
+      });
+    }
   }
 
 }

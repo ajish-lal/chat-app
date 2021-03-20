@@ -9,7 +9,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class UserListComponent implements OnInit {
   usersList: any = [];
-  activeIndex = null;
+  activeIndex = 0;
 
   constructor(private userService: UserService) { }
 
@@ -19,7 +19,8 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  selectedMessage(index: any) {
+  selectedMessage(user: any, index: any) {
+    console.log(user)
     this.activeIndex = index;
   }
 

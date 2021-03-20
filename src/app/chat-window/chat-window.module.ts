@@ -9,6 +9,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatListModule } from '@angular/material/list';
+import { FormsModule } from "@angular/forms";
 
 const routes: Routes = [
     {
@@ -27,6 +28,7 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
+        FormsModule,
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,

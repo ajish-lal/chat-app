@@ -1,11 +1,11 @@
 <div class="user-container">
     <mat-list>
-        <mat-list-item *ngFor="let user of usersList; let i be index;" class="user-name"
-            [ngClass]="{ 'selected' : i===activeIndex }" (click)=selectedMessage(i)>
+        <mat-list-item *ngFor="let user of usersList; let i = index;" class="user-name"
+            [ngClass]="{ 'selected' : i===activeIndex }" (click)="selectedMessage(user,i)">
             <img matListAvatar src="{{user.avatar}}" alt="{{user.first_name}}_pic">
-            <h3 matLine>{{user.first_name}} {{user.last_name}} </h3>
+            <h3 matLine>{{user.first_name}} {{user.last_name}}</h3>
             <p matLine>
-                <span> Hey, how are you? </span>
+                <span>Hey, how are you?</span>
             </p>
         </mat-list-item>
     </mat-list>
