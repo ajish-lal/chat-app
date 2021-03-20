@@ -1,6 +1,9 @@
 .user-container {
     height: 100%;
     overflow: auto;
+    overflow-x: hidden;
+    user-select: none;
+    background-color: #10222c;
 
     h3, p {
         color: white;
@@ -11,10 +14,6 @@
 
     .user-name {
         cursor: pointer;
-    }
-
-    .mat-list-base {
-        background-color: #10222c;
     }
     
     .mat-list-item-content:hover {

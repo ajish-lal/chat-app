@@ -1,7 +1,7 @@
 .chat-wrapper{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: calc(100% - 66px);
     color: white;
 
     .background {
@@ -9,10 +9,10 @@
         height: 100%;
 
         .user-list {
-            width: 30%;
+            width: 400px;
         }
         .message-wrapper {
-            width: 70%;
+            width: 100%;
             background-color: white;
         }
         .chat-container {
