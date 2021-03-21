@@ -13,7 +13,7 @@ export class UserService {
 
   fetchUsers() {
     let page1 = this.http.get('https://reqres.in/api/users?page=1');
-    let page2 = this.http.get('https://reqres.in/api/users?page=2')
+    let page2 = this.http.get('https://reqres.in/api/users?page=2');
     return forkJoin([page1, page2]);
   }
 

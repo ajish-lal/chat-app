@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'chat-messages',
@@ -7,17 +7,23 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class MessagesComponent implements OnInit {
+  @Input() activeUser: any;
   inputMessage = '';
-  messageList: any = [];
+  messageList: any = [{
+    isCurrentUser: false,
+    message: 'Good morning.'
+  }, {
+    isCurrentUser: false,
+    message: 'Hey dear, how are you my love?'
+  }];
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   sendMessage() {
     if (this.inputMessage) {
-      this.messageList.push(this.inputMessage);
+      this.messageList.push({ isCurrentUser: true, message: this.inputMessage });
       this.inputMessage = '';
 
       let messageContainer = document.getElementById('messageWindow');

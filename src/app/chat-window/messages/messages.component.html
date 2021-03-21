@@ -1,25 +1,16 @@
 <div class="messages-container">
     <div class="message-window" id="messageWindow">
-        <div class="message-container">
+        <div class="message-container" *ngFor="let messages of messageList"
+            [ngStyle]="{'justify-content': messages.isCurrentUser ? 'flex-end' : ''}">
             <div class="message-style">
-                Good morning.
-            </div>
-        </div>
-        <div class="message-container">
-            <div class="message-style">
-                Hey dear, how are you my love?
-            </div>
-        </div>
-        <div class="message-container" *ngFor="let messages of messageList" style="justify-content: flex-end;">
-            <div class="message-style">
-                {{messages}}
+                {{messages.message}} {{activeUser|json}}
             </div>
         </div>
     </div>
     <div class="input-box">
         <mat-form-field style="width: 100%;">
-            <input type="text" matInput placeholder="Enter your message..." autocomplete="off" style="font-size: 16px; font-family: cursive;"
-                [(ngModel)]="inputMessage" (keyup.enter)="sendMessage()">
+            <input type="text" matInput placeholder="Enter your message..." autocomplete="off"
+                style="font-size: 16px; font-family: cursive;" [(ngModel)]="inputMessage" (keyup.enter)="sendMessage()">
         </mat-form-field>
     </div>
 </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { UserListComponent } from './user-list/user-list.component';
 
 @Component({
   selector: 'chat-window',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-window.component.scss']
 })
 export class ChatWindowComponent implements OnInit {
+  @ViewChild(UserListComponent) temp: any;
+  activeUser = null;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.temp);
+  }
+
+  selectedUser(user: any) {
+    this.activeUser = user;
   }
 
 }

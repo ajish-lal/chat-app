@@ -4,10 +4,10 @@
     </div>
     <div class="background">
         <div class="user-list">
-            <chat-user-list></chat-user-list>
+            <chat-user-list (selectedUser)="selectedUser($event)"></chat-user-list>
         </div>
         <div class="message-wrapper">
-            <chat-messages></chat-messages>
+            <chat-messages [activeUser]="activeUser"></chat-messages>
         </div>
     </div>
 </div>
