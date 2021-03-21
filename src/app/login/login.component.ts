@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
+import { UserService } from '../common/user.service';
 
 @Component({
   selector: 'chat-login',
@@ -21,8 +21,12 @@ export class LoginComponent implements OnInit {
   });
 
   signIn() {
-    if (this.loginForm.valid && this.userService.authenticateUser(this.loginForm.value)) {
-      this.router.navigateByUrl('/chat-window');
+    if (this.loginForm.valid) {
+      if (this.userService.authenticateUser(this.loginForm.value))
+        this.router.navigateByUrl('/chat-window');
+      else {
+        console.log('Error!');
+      }
     }
   }
 

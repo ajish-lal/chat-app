@@ -22,13 +22,19 @@ export class UserService {
   }
 
   authenticateUser(payload: any) {
-    console.log(payload)
     if (this.userList.find((elem: any) => {
       return (elem.userName === payload.userNameEmail || elem.email === payload.userNameEmail)
         && elem.password === payload.password
     })) {
+      sessionStorage.setItem('isLoggedIn', 'true');
       return true;
-    } else
+    } else {
+      sessionStorage.setItem('isLoggedIn', 'false');
       return false;
+    }
+  }
+
+  logout() {
+    sessionStorage.setItem('isLoggedIn', 'false');
   }
 }

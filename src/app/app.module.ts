@@ -10,13 +10,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
-import { UserService } from './user.service';
+import { UserService } from './common/user.service';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AuthenticationGuard } from './common/guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'chat-window',
+    canLoad: [AuthenticationGuard],
     loadChildren: () => import('./chat-window/chat-window.module').then(m => m.ChatWindowModule)
   }
 ]

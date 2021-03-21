@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { UserService } from 'src/app/user.service';
+import { UserService } from 'src/app/common/user.service';
 
 @Component({
   selector: 'chat-user-list',
