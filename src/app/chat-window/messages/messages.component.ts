@@ -7,19 +7,19 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class MessagesComponent implements OnInit {
-  @Input() activeUser: any;
+  @Input() activeUserMessages: any = [];
   inputMessage = '';
-  messageList: any = [{
-    isCurrentUser: false,
-    message: 'Good morning.'
-  }, {
-    isCurrentUser: false,
-    message: 'Hey dear, how are you my love?'
-  }];
+  messageList: any = [];
 
   constructor() { }
 
   ngOnInit(): void { }
+
+  ngOnChanges(change) {
+    if (change.activeUserMessages.currentValue) {
+      this.messageList = change.activeUserMessages.currentValue.messages
+    }
+  }
 
   sendMessage() {
     if (this.inputMessage) {

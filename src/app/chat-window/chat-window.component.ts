@@ -8,16 +8,39 @@ import { UserListComponent } from './user-list/user-list.component';
 })
 export class ChatWindowComponent implements OnInit {
   @ViewChild(UserListComponent) temp: any;
-  activeUser = null;
+  messagesList: any = [];
+  activeUserMessages = [];
 
   constructor() { }
 
   ngOnInit(): void {
     console.log(this.temp);
+
+    this.messagesList = [{
+      id: 1,
+      messages: [{
+        isCurrentUser: false,
+        message: 'Good morning.'
+      }, {
+        isCurrentUser: false,
+        message: 'Hey dear, how are you my love?'
+      }],
+    },
+    {
+      id: 2,
+      messages: [{
+        isCurrentUser: false,
+        message: 'Hey man!'
+      }, {
+        isCurrentUser: false,
+        message: 'How are you?'
+      }],
+    }];
   }
 
   selectedUser(user: any) {
-    this.activeUser = user;
+    let messages = this.messagesList.find((elem: any) => (elem.id === user.id));
+    this.activeUserMessages = messages ? messages : { id: user.id, messages: [] };
   }
 
 }

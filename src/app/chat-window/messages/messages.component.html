@@ -1,12 +1,19 @@
 <div class="messages-container">
-    <div class="message-window" id="messageWindow">
-        <div class="message-container" *ngFor="let messages of messageList"
-            [ngStyle]="{'justify-content': messages.isCurrentUser ? 'flex-end' : ''}">
-            <div class="message-style">
-                {{messages.message}} {{activeUser|json}}
+    <ng-container *ngIf="messageList && messageList.length; else emptyContainer">
+        <div class="message-window" id="messageWindow">
+            <div class="message-container" *ngFor="let messages of messageList"
+                [ngStyle]="{'justify-content': messages.isCurrentUser ? 'flex-end' : ''}">
+                <div class="message-style">
+                    {{messages.message}}
+                </div>
             </div>
         </div>
-    </div>
+    </ng-container>
+    <ng-template #emptyContainer>
+        <div class="message-window" id="messageWindow" style="justify-content: center; align-items: center;">
+            No messages found!
+        </div>
+    </ng-template>
     <div class="input-box">
         <mat-form-field style="width: 100%;">
             <input type="text" matInput placeholder="Enter your message..." autocomplete="off"
