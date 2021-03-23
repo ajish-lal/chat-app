@@ -5,7 +5,7 @@ import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStat
     providedIn: "root"
 })
 
-export class AuthenticationGuard implements CanLoad {
+export class AuthenticationGuard implements CanLoad, CanActivate {
 
     constructor(private router: Router) { }
     canLoad(route: Route, segments: UrlSegment[]) {
@@ -13,6 +13,7 @@ export class AuthenticationGuard implements CanLoad {
         if (isLoggedIn === 'true')
             return true;
         else {
+            console.log('Not Authenticated in canLoad');
             this.router.navigateByUrl('/login');
             return false;
         }
@@ -23,6 +24,7 @@ export class AuthenticationGuard implements CanLoad {
         if (isLoggedIn === 'true')
             return true;
         else {
+            console.log('Not Authenticated in canActivate');
             this.router.navigateByUrl('/login');
             return false;
         }

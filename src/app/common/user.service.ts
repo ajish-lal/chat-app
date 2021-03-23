@@ -22,11 +22,14 @@ export class UserService {
   }
 
   authenticateUser(payload: any) {
-    if (this.userList.find((elem: any) => {
+    let user = this.userList.find((elem: any) => {
       return (elem.userName === payload.userNameEmail || elem.email === payload.userNameEmail)
         && elem.password === payload.password
-    })) {
+    });
+
+    if (user) {
       sessionStorage.setItem('isLoggedIn', 'true');
+      sessionStorage.setItem('userName', user.userName);
       return true;
     } else {
       sessionStorage.setItem('isLoggedIn', 'false');
@@ -36,5 +39,6 @@ export class UserService {
 
   logout() {
     sessionStorage.setItem('isLoggedIn', 'false');
+    sessionStorage.setItem('userName', '');
   }
 }

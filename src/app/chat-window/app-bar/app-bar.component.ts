@@ -8,10 +8,11 @@ import { UserService } from 'src/app/common/user.service';
   styleUrls: ['./app-bar.component.scss']
 })
 export class AppBarComponent implements OnInit {
-
+  userName = '';
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userName = sessionStorage.getItem('userName');
   }
 
   logout() {

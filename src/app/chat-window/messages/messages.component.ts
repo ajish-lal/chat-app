@@ -9,27 +9,30 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 export class MessagesComponent implements OnInit {
   @Input() activeUserMessages: any = [];
   inputMessage = '';
+  userName = '';
   messageList: any = [];
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.userName = sessionStorage.getItem('userName');
+  }
 
   ngOnChanges(change) {
     if (change.activeUserMessages.currentValue) {
-      this.messageList = change.activeUserMessages.currentValue.messages
+      // this.messageList = change.activeUserMessages.currentValue.messages;
     }
   }
 
   sendMessage() {
     if (this.inputMessage) {
-      this.messageList.push({ isCurrentUser: true, message: this.inputMessage });
+      this.activeUserMessages.messages.push({ isCurrentUser: true, message: this.inputMessage });
       this.inputMessage = '';
 
       let messageContainer = document.getElementById('messageWindow');
       setTimeout(() => {
         if (messageContainer) {
-          messageContainer.scrollTop = messageContainer.scrollHeight + 52;
+          messageContainer.scrollTop = messageContainer.scrollHeight;
         }
       });
     }

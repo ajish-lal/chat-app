@@ -1,10 +1,10 @@
 <div class="messages-container">
-    <ng-container *ngIf="messageList && messageList.length; else emptyContainer">
+    <ng-container *ngIf="activeUserMessages && activeUserMessages.messages.length; else emptyContainer">
         <div class="message-window" id="messageWindow">
-            <div class="message-container" *ngFor="let messages of messageList"
+            <div class="message-container" *ngFor="let messages of activeUserMessages.messages"
                 [ngStyle]="{'justify-content': messages.isCurrentUser ? 'flex-end' : ''}">
                 <div class="message-style">
-                    {{messages.message}}
+                    {{messages.message | emoji:userName}}
                 </div>
             </div>
         </div>

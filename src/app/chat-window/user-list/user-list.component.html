@@ -5,7 +5,7 @@
             <img matListAvatar src="{{user.avatar}}" alt="{{user.first_name}}_pic">
             <h3 matLine>{{user.first_name}} {{user.last_name}}</h3>
             <p matLine>
-                <span>Hey, how are you?</span>
+                <span>{{user.lastMessage ? user.lastMessage.message : ''}}</span>
             </p>
         </mat-list-item>
     </mat-list>

@@ -35,6 +35,7 @@ const routes: Routes = [
   {
     path: 'chat-window',
     canLoad: [AuthenticationGuard],
+    canActivate: [AuthenticationGuard],
     loadChildren: () => import('./chat-window/chat-window.module').then(m => m.ChatWindowModule)
   }
 ]

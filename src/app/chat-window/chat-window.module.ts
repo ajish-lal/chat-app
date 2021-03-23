@@ -10,6 +10,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatListModule } from '@angular/material/list';
 import { FormsModule } from "@angular/forms";
+import { EmojiPipe } from "../common/pipe/emoji.pipe";
 
 const routes: Routes = [
     {
@@ -24,6 +25,7 @@ const routes: Routes = [
         AppBarComponent,
         UserListComponent,
         MessagesComponent,
+        EmojiPipe
     ],
     imports: [
         CommonModule,
