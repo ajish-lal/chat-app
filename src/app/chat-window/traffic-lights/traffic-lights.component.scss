@@ -1,0 +1,18 @@
+.light-container{
+    display: flex;
+    background-color: #e1d0d0;
+    width: fit-content;
+    margin: 0 auto;
+
+    .lights{
+        height: 80px;
+        width: 80px;
+        background-color: #f44336;
+        border-radius: 80px;
+        margin: 10px;
+    }
+
+    .green {
+        background-color: #46a35e;
+    }
+}

@@ -11,11 +11,16 @@ import { MatInputModule } from "@angular/material/input";
 import { MatListModule } from '@angular/material/list';
 import { FormsModule } from "@angular/forms";
 import { EmojiPipe } from "../common/pipe/emoji.pipe";
+import { TrafficLightsComponent } from './traffic-lights/traffic-lights.component';
 
 const routes: Routes = [
     {
         path: '',
         component: ChatWindowComponent,
+    },
+    {
+        path: 'traffic-lights',
+        component: TrafficLightsComponent
     }
 ]
 
@@ -25,7 +30,8 @@ const routes: Routes = [
         AppBarComponent,
         UserListComponent,
         MessagesComponent,
-        EmojiPipe
+        EmojiPipe,
+        TrafficLightsComponent
     ],
     imports: [
         CommonModule,

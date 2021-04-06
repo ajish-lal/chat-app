@@ -59,7 +59,7 @@ const routes: Routes = [
     MatSelectModule,
     MatDialogModule
   ],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 
